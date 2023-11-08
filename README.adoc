@@ -1,6 +1,6 @@
 = csoftz-polarbookstore-edge-service
 
-Standalone repository for the _'order-service_'.
+Standalone repository for the _'edge-service_'.
 Keeps the same code as Thomas Vitale Book Spring Cloud Native but in my own format.
 He uses Gradle in the _git_ repository, but I use Maven instead.
 
