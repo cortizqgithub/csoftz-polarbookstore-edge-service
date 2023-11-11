@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.4</version>
+        <version>3.1.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.polarbookshop</groupId>
@@ -16,9 +16,12 @@
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
+
+        <!-- Docker image settings -->
         <docker.registry>ghcr.io</docker.registry>
         <docker.user>cortizqgithub</docker.user>
         <docker.image.name>${docker.registry}/${docker.user}/${project.name}:${project.version}</docker.image.name>
+        <!-- END Docker image settings -->
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -45,6 +48,18 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
         <!-- END Spring Boot dependencies -->
 
         <!-- Testing dependencies -->
@@ -52,6 +67,22 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- TestContainers -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-testcontainers</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId></groupId>
+            <artifactId></artifactId>
         </dependency>
         <!-- END Testing dependencies -->
     </dependencies>
@@ -67,6 +98,7 @@
                 <configuration>
                     <image>
                         <name>${docker.image.name}</name>
+                        <builder>paketobuildpacks/builder-jammy-tiny:latest</builder>
                     </image>
                 </configuration>
             </plugin>
