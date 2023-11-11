@@ -80,10 +80,6 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
-        </dependency>
         <!-- END Testing dependencies -->
     </dependencies>
     <build>
