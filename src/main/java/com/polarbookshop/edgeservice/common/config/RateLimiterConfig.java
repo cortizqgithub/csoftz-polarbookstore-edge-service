@@ -27,6 +27,7 @@ public class RateLimiterConfig {
      * Spring Cloud Gateway Redis integration requires a key resolver bean to determine which bucket to use for each request.
      * By default uses the currently authenticateduser in Spring Security. But as project does not
      * have it set up we use the following definition.
+     *
      * @return annonymous key resolver name.
      */
     @Bean

@@ -16,6 +16,6 @@ spec:
                   number: 6000
   tls:
     - hosts:
-      - polar.localhost
+        - polar.localhost
       
                   

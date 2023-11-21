@@ -13,15 +13,15 @@ import static com.polarbookshop.edgeservice.common.consts.TestContainerConstants
 import static com.polarbookshop.edgeservice.common.consts.TestContainerConstants.TEST_SPRING_DATA_REDIS_HOST;
 import static com.polarbookshop.edgeservice.common.consts.TestContainerConstants.TEST_SPRING_DATA_REDIS_PORT;
 
-import com.polarbookshop.edgeservice.common.consts.TestContainerConstants;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
+
 /**
  * Unit tests for Application class.
  *
