@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 9100
   netty:
     connection-timeout: 2s
     idle-timeout: 15s
@@ -50,16 +50,16 @@ spring:
               basedOnPreviousValue: false
       routes:
         - id: catalog-route
-          uri: ${CATALOG_SERVICE_URI:http://localhost:9003}
+          uri: ${CATALOG_SERVICE_URI:http://localhost:9101}
           predicates:
-            - Path=/api/v1/books/**
+            - Path=/api/v1/books/**,/api/v1/home
           filters:
             - name: CircuitBreaker
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
         - id: order-route
-          uri: ${ORDER_SERVICE_URI:http://localhost:9004}
+          uri: ${ORDER_SERVICE_URI:http://localhost:9102}
           predicates:
             - Path=/api/v1/orders/**
           filters:

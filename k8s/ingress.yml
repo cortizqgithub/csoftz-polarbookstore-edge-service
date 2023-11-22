@@ -13,7 +13,7 @@ spec:
               service:
                 name: edge-service
                 port:
-                  number: 6000
+                  number: 80
   tls:
     - hosts:
         - polar.localhost
